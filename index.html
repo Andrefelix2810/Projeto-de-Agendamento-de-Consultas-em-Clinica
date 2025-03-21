@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Consultas</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Agendamento de Consultas</h1>
+    </header>
+    <main>
+        <section id="agendar-consulta">
+            <h2>Agendar consulta</h2>
+            <form id="form-agendar">
+                <label for="especialidade">Escolha a especialidade:</label>
+                <select id="especialidade">
+                    <option value="Cardiologista">Cardiologista</option>
+                    <option value="Dermatologista">Dermatologista</option>
+                    <option value="Pediatra">Pediatra</option>
+                    <option value="Neurologista">Neurologista</option>
+                    <option value="Ortopedista">Ortopedista</option>
+                    <option value="Ginecologista">Ginecologista</option>
+                </select>
+                <label for="data">Escolha a data:</label>
+                <input type="date" id="data">
+                <label for="hora">Escolha o horário:</label>
+                <input type="time" id="hora">
+                <button type="button" id="agendar">Agendar Consulta</button>
+            </form>
+            <p id="resultado"></p>
+        </section>
+    </main>
+    <script src="./js/scripts.js"></script>
+</body>
+</html>
