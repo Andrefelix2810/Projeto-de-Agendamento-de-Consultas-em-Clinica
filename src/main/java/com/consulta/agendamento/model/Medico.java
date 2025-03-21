@@ -18,6 +18,7 @@ public class Medico {
     private LocalTime horarioFim;
     private String telefone;
     private String sala;
+    private String crm; // Novo campo CRM
 
     // Getters e Setters
 
@@ -75,5 +76,13 @@ public class Medico {
 
     public void setSala(String sala) {
         this.sala = sala;
+    }
+
+    public String getCrm() {
+        return crm;
+    }
+
+    public void setCrm(String crm) {
+        this.crm = crm;
     }
 }
