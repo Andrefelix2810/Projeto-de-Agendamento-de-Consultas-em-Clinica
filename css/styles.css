@@ -1,0 +1,190 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Menu lateral */
+#sidebar-wrapper {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar-heading {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 15px 0;
+    background-color: #007bff;
+    color: white;
+}
+
+.list-group-item {
+    font-size: 1.1rem;
+    padding: 15px 20px;
+    border: none;
+    color: #333;
+}
+
+.list-group-item i {
+    margin-right: 10px;
+}
+
+.list-group-item:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Conteúdo principal */
+#page-content-wrapper {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #007bff;
+}
+
+main h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+main p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Estilo para a seção "INICIO" */
+#inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+#inicio figure {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    flex-wrap: wrap;
+}
+
+#inicio figure img.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 60px;
+    height: 60px;
+}
+
+#inicio figure .content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#inicio figure img.main-image {
+    width: 40%;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+#inicio figure figcaption {
+    flex: 1;
+    text-align: left;
+}
+
+
+/* Estilo para a seção "Agendar consulta" */
+#agendar-consulta {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#agendar-consulta h2 {
+    font-size: 1.8rem;
+    color: #007bff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#form-agendar {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#form-agendar label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    color: #333;
+}
+
+#form-agendar select,
+#form-agendar input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#form-agendar button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#form-agendar button:hover {
+    background-color: #0056b3;
+}
+
+#resultado {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: green;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    #page-content-wrapper {
+        margin-left: 0;
+    }
+}
