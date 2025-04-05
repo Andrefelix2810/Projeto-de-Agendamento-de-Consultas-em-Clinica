@@ -1,48 +1,42 @@
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("login").addEventListener("click", function (event) {
-        event.preventDefault(); // Impede o recarregamento da página ao submeter o formulário
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('login').addEventListener('click', function () {
+        const nome = document.getElementById('nome').value;
+        const senha = document.getElementById('password').value;
 
-        const nome = document.getElementById("nome").value;
-        const password = document.getElementById("password").value;
-
-        fetch("http://localhost:8080/usuarios/login", {
-            method: "POST",
+        fetch('http://localhost:8080/usuarios/login', {
+            method: 'POST',
             headers: {
-                "Content-Type": "application/json",
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                nome: nome,
-                password: password,
-            }),
+            body: JSON.stringify({ nome: nome, senha: senha })
         })
-            .then(async (response) => {
-                if (!response.ok) {
-                    let errorMessage = `Erro ao fazer login: ${response.status} - ${response.statusText}`;
+        .then(response => {
+            if (!response.ok) throw new Error('Login inválido');
+            return response.json();
+        })
+        .then(data => {
+            const token = data.token;
+            localStorage.setItem('token', token);
 
-                    // Se a resposta for JSON, tenta extrair detalhes do erro
-                    const contentType = response.headers.get("content-type");
-                    if (contentType && contentType.includes("application/json")) {
-                        const errorData = await response.json();
-                        errorMessage += ` - ${JSON.stringify(errorData)}`;
-                    }
-
-                    throw new Error(errorMessage);
+            // Verifica se o usuário já tem paciente cadastrado
+            return fetch('http://localhost:8080/pacientes/existe', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token
                 }
-                return response.json();
-            })
-            .then((result) => {
-                console.log("Login realizado com sucesso:", result);
-                alert("Login realizado com sucesso!");
-
-                // Armazenar o token JWT no localStorage
-                localStorage.setItem("authToken", result.token);
-
-                // Redireciona para a página principal (index.html)
-                window.location.href = "index.html"; 
-            })
-            .catch((error) => {
-                console.error("Erro ao fazer login:", error);
-                alert("Erro ao fazer login. Verifique suas credenciais.");
             });
+        })
+        .then(response => response.json())
+        .then(existePaciente => {
+            if (existePaciente) {
+                window.location.href = 'index.html';
+            } else {
+                window.location.href = 'cadastro.html';
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Usuário ou senha inválidos.');
+        });
     });
 });

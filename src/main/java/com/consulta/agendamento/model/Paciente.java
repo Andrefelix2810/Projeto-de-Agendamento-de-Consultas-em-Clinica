@@ -1,19 +1,21 @@
 package com.consulta.agendamento.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Paciente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     private String nome;
     private String cpf;
     private String endereco;
     private String telefone;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id") // cria a foreign key no banco
+    private Usuario usuario;
 
     // Getters e Setters
 
@@ -55,5 +57,13 @@ public class Paciente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

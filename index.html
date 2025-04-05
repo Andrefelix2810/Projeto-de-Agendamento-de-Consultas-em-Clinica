@@ -24,7 +24,13 @@
                     <i class="fas fa-info-circle"></i> Informações
                 </a>
                 <a href="#" class="list-group-item list-group-item-action bg-light" data-section="agendamentos">
-                    <i class="fas fa-list"></i> Agendamentos Realizados
+                    <i class="fas fa-list"></i> Agendamentos
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-light" data-section="portal">
+                    <i class="fas fa-clinic-medical"></i> Portal
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-light" data-section="perfil">
+                    <i class="fas fa-user"></i> Perfil
                 </a>
             </div>
         </div>
@@ -39,16 +45,9 @@
                     <!-- Seção Início -->
                     <section id="inicio" class="content-section d-flex justify-content-center align-items-center" style="display: none;"> 
                         <figure class="text-center bg-light p-4 rounded shadow" style="max-width: 800px; width: 100%; display: flex; align-items: center;">
-                            <!-- Logo no canto superior esquerdo -->
                             <img src="/IMG/image.png" alt="Logo da Empresa" style="position: absolute; top: -20px; left: 1050px; width: 50000px; height: 100px;">
-                    <br><br><br><br><br><br><br><br><br><br>
-                    <br><br><br><br><br><br><br>
-                            <!-- Imagem e texto -->
                             <div style="display: flex; align-items: center; width: 100%;">
-                                <!-- Imagem à esquerda -->
                                 <img src="/IMG/undraw_medical-research_pze7.png" alt="Imagem da Empresa" class="img-fluid rounded" style="width: 40%; margin-right: 20px;">
-                    
-                                <!-- Texto explicativo à direita -->
                                 <figcaption style="text-align: left;">
                                     <h2 class="mb-3">Bem-vindo</h2>
                                     <p>
@@ -83,22 +82,59 @@
                         <p id="resultado"></p>
                     </section>
 
+                    <!-- Seção Informações -->
                     <section id="informacoes" class="content-section" style="display: none;">
                         <h2>Informações</h2>
                         <p>Abaixo estão listados os médicos disponíveis:</p>
-                        <!-- A lista de médicos será adicionada aqui -->
+                        <!-- Lista de médicos aparece aqui -->
                     </section>
 
                     <!-- Seção Agendamentos -->
                     <section id="agendamentos" class="content-section" style="display: none;">
-                        <h2>Agendamentos Realizados</h2>
+                        <h2>Agendamentos</h2>
                         <p>Veja a lista de consultas já agendadas.</p>
                     </section>
+
+                    <!-- Nova Seção Portal -->
+                    <section id="portal" class="content-section" style="display: none;">
+                        <h2>Portal</h2>
+                        <p>Bem-vindo ao Portal do Paciente. Aqui você pode acessar conteúdos exclusivos e orientações de saúde.</p>
+                    </section>
+
+<!-- Seção Perfil -->
+<section id="perfil" class="content-section" style="display: none;">
+    <h2>Perfil</h2>
+    <button class="btn btn-success mb-2" id="novo-paciente">Novo Paciente</button>
+    <table class="table table-bordered table-hover" id="tabela-pacientes">
+        <thead class="thead-light">
+            <tr>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>CPF</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Pacientes serão inseridos aqui via JS -->
+        </tbody>
+    </table>
+</section>
+
+<!-- Script de carregamento do perfil -->
+<script src="js/perfil.js"></script>
+<script>
+    document.getElementById("btn-perfil").addEventListener("click", function () {
+        document.getElementById("perfil").style.display = "block"; // mostra a seção
+        carregarPacientes(); // carrega os dados
+    });
+</script>
+
+
                 </main>
             </div>
         </div>
     </div>
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
